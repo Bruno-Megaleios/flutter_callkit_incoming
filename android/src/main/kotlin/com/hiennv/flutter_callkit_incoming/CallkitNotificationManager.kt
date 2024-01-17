@@ -32,6 +32,7 @@ import com.squareup.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Target
 import okhttp3.OkHttpClient
+import android.util.Log
 
 
 class CallkitNotificationManager(private val context: Context) {
@@ -48,6 +49,7 @@ class CallkitNotificationManager(private val context: Context) {
     private lateinit var notificationBuilder: NotificationCompat.Builder
     private var notificationViews: RemoteViews? = null
     private var notificationSmallViews: RemoteViews? = null
+    private var notificationCounter = 0
     private var notificationId: Int = 9696
     private var dataNotificationPermission: Map<String, Any> = HashMap()
 
@@ -82,6 +84,7 @@ class CallkitNotificationManager(private val context: Context) {
 
 
     fun showIncomingNotification(data: Bundle) {
+        Log.d("FlutterCallkitPlugin", "notificationId: ${notificationId}")
         data.putLong(EXTRA_TIME_START_CALL, System.currentTimeMillis())
 
         notificationId = data.getString(CallkitConstants.EXTRA_CALLKIT_ID, "callkit_incoming").hashCode()
@@ -111,7 +114,7 @@ class CallkitNotificationManager(private val context: Context) {
         notificationBuilder.setOnlyAlertOnce(true)
         notificationBuilder.setSound(null)
         notificationBuilder.setFullScreenIntent(
-                getActivityPendingIntent(notificationId, data), true
+            getActivityPendingIntent(notificationId, data), true
         )
         notificationBuilder.setContentIntent(getActivityPendingIntent(notificationId, data))
         notificationBuilder.setDeleteIntent(getTimeOutPendingIntent(notificationId, data))
@@ -469,7 +472,9 @@ class CallkitNotificationManager(private val context: Context) {
     }
 
     private fun getActivityPendingIntent(id: Int, data: Bundle): PendingIntent {
-        val intent = CallkitIncomingActivity.getIntent(context, data)
+        val intent = CallkitIncomingActivity.getIntent(context, data).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
         return PendingIntent.getActivity(context, id, intent, getFlagPendingIntent())
     }
 
