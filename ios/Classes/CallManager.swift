@@ -61,6 +61,12 @@ class CallManager: NSObject {
         callTransaction.addAction(endCallAction)
         //requestCall
         self.requestCall(callTransaction, action: "endCall")
+        let calls = callController.callObserver.calls
+        for call in calls {
+            if(call.isOnHold){
+                holdCall(call: callWithUUID(uuid: call.uuid)!, onHold: false)
+            }
+        }
     }
     
     func connectedCall(call: Call) {

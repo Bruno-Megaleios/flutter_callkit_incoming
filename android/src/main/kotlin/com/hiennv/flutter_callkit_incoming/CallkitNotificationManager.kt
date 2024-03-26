@@ -100,7 +100,7 @@ class CallkitNotificationManager(private val context: Context) {
         )
 
         notificationBuilder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID_INCOMING)
-        notificationBuilder.setAutoCancel(false)
+        notificationBuilder.setAutoCancel(true)
         notificationBuilder.setChannelId(NOTIFICATION_CHANNEL_ID_INCOMING)
         notificationBuilder.setDefaults(NotificationCompat.DEFAULT_VIBRATE)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -531,6 +531,7 @@ class CallkitNotificationManager(private val context: Context) {
                     // allow
                 } else {
                     //deny
+
                     activity?.let {
                         if (ActivityCompat.shouldShowRequestPermissionRationale(it, Manifest.permission.POST_NOTIFICATIONS)) {
                             //showDialogPermissionRationale()
@@ -547,18 +548,22 @@ class CallkitNotificationManager(private val context: Context) {
                             if (this.dataNotificationPermission["postNotificationMessageRequired"] != null) {
                                 showDialogMessage(it, this.dataNotificationPermission["postNotificationMessageRequired"] as String) { dialog, _ ->
                                     dialog?.dismiss()
-                                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                    if (Build.VERSION.SDK_INT >= 34){
+                                        val intent = Intent(Settings.ACTION_MANAGE_APP_USE_FULL_SCREEN_INTENT,
                                             Uri.fromParts("package", it.packageName, null))
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    it.startActivity(intent)
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        it.startActivity(intent)
+                                    }
                                 }
                             } else {
                                 showDialogMessage(it, it.resources.getString(R.string.text_post_notification_message_required)) { dialog, _ ->
                                     dialog?.dismiss()
-                                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                    if (Build.VERSION.SDK_INT >= 34){
+                                        val intent = Intent(Settings.ACTION_MANAGE_APP_USE_FULL_SCREEN_INTENT,
                                             Uri.fromParts("package", it.packageName, null))
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    it.startActivity(intent)
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        it.startActivity(intent)
+                                    }
                                 }
                             }
                         }

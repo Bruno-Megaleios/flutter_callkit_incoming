@@ -138,6 +138,21 @@ class FlutterCallkitIncomingPlugin : FlutterPlugin, MethodCallHandler, ActivityA
         )
     }
 
+    public fun endCallId(callId: String) {
+        val calls = getDataActiveCalls(context)
+        calls.forEach {
+            if(it.id == callId){
+                Log.d("FlutterCallkitPlugin", "END DATA CALLINCOMING? ${it}")
+                context?.sendBroadcast(
+                    CallkitIncomingBroadcastReceiver.getIntentEnded(
+                        requireNotNull(context),
+                        it.toBundle()
+                    )
+                )
+            }
+        }
+    }
+
     public fun endAllCalls() {
         val calls = getDataActiveCalls(context)
         calls.forEach {
