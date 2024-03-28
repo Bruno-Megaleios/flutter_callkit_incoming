@@ -1,0 +1,132 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.hiennv.flutter_callkit_incoming" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="16"
+6-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="34" />
+7-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+9-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:4:5-80
+9-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:4:22-78
+10    <uses-permission android:name="android.permission.INTERNET" />
+10-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:5:5-67
+10-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:5:22-64
+11    <uses-permission android:name="android.permission.VIBRATE" />
+11-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:6:5-66
+11-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:6:22-63
+12    <uses-permission android:name="android.permission.WAKE_LOCK" />
+12-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:7:5-68
+12-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:7:22-65
+13    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+13-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:8:5-85
+13-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:8:22-82
+14    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+14-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:9:5-76
+14-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:9:22-74
+15    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+15-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:10:5-74
+15-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:10:22-72
+16
+17    <application>
+17-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:12:5-63:19
+18        <activity
+18-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:14:9-29:20
+19            android:name="com.hiennv.flutter_callkit_incoming.CallkitIncomingActivity"
+19-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:15:13-87
+20            android:configChanges="orientation"
+20-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:21:13-48
+21            android:excludeFromRecents="true"
+21-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:17:13-46
+22            android:exported="true"
+22-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:22:13-36
+23            android:noHistory="true"
+23-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:18:13-37
+24            android:showOnLockScreen="true"
+24-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:19:13-44
+25            android:showWhenLocked="true"
+25-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:23:13-42
+26            android:taskAffinity="com.hiennv.flutter_callkit_incoming.INCOMING_CALL_AFFINITY"
+26-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:16:13-94
+27            android:theme="@style/CallkitIncomingTheme"
+27-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:24:13-56
+28            android:turnScreenOn="true" >
+28-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:20:13-40
+29            <intent-filter>
+29-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:25:13-28:29
+30                <action android:name="${applicationId}.com.hiennv.flutter_callkit_incoming.ACTION_CALL_INCOMING" />
+30-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:26:17-116
+30-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:26:25-113
+31
+32                <category android:name="android.intent.category.DEFAULT" />
+32-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:27:17-76
+32-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:27:27-73
+33            </intent-filter>
+34        </activity>
+35        <activity
+35-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:30:9-33:85
+36            android:name="com.hiennv.flutter_callkit_incoming.TransparentActivity"
+36-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:33:13-83
+37            android:exported="false"
+37-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:31:13-37
+38            android:theme="@style/TranslucentTheme" />
+38-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:32:13-52
+39
+40        <receiver
+40-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:35:9-46:20
+41            android:name="com.hiennv.flutter_callkit_incoming.CallkitIncomingBroadcastReceiver"
+41-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:36:13-96
+42            android:enabled="true"
+42-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:37:13-35
+43            android:exported="true" >
+43-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:38:13-36
+44            <intent-filter>
+44-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:39:13-45:29
+45                <action android:name="${applicationId}.com.hiennv.flutter_callkit_incoming.ACTION_CALL_INCOMING" />
+45-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:26:17-116
+45-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:26:25-113
+46                <action android:name="${applicationId}.com.hiennv.flutter_callkit_incoming.ACTION_CALL_ACCEPT" />
+46-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:41:17-114
+46-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:41:25-111
+47                <action android:name="${applicationId}.com.hiennv.flutter_callkit_incoming.ACTION_CALL_DECLINE" />
+47-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:42:17-115
+47-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:42:25-112
+48                <action android:name="${applicationId}.com.hiennv.flutter_callkit_incoming.ACTION_CALL_ENDED" />
+48-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:43:17-113
+48-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:43:25-110
+49                <action android:name="${applicationId}.com.hiennv.flutter_callkit_incoming.ACTION_CALL_TIMEOUT" />
+49-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:44:17-115
+49-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:44:25-112
+50            </intent-filter>
+51        </receiver>
+52
+53        <service
+53-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:48:9-51:91
+54            android:name="com.hiennv.flutter_callkit_incoming.CallkitSoundPlayerService"
+54-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:51:13-89
+55            android:enabled="true"
+55-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:49:13-35
+56            android:exported="true" />
+56-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:50:13-36
+57        <service
+57-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:53:9-61:19
+58            android:name="com.hiennv.flutter_callkit_incoming.telecom.TelecomConnectionService"
+58-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:56:13-96
+59            android:enabled="true"
+59-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:54:13-35
+60            android:exported="true"
+60-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:55:13-36
+61            android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE" >
+61-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:57:13-84
+62            <intent-filter>
+62-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:58:13-60:29
+63                <action android:name="android.telecom.ConnectionService" />
+63-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:59:17-76
+63-->D:\Workk\flutter_callkit_incoming\android\src\main\AndroidManifest.xml:59:25-73
+64            </intent-filter>
+65        </service>
+66    </application>
+67
+68</manifest>
